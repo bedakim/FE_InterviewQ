@@ -71,3 +71,24 @@ console.log(foo === null); // true
 
 console.log(foo == undefined); // true. 옳지않습니다. 확인하는 데 사용하지 마세요.
 ```
+
+### `==`와 `===`의 차이점은 무엇입니까?
+
+`==`는 추상 동등 연산자이고 `===`는 완전 동등 연산자입니다. `==`연산자는 타입 변환이 필요한 경우 타입 변환을 한 후에 동등한지 비교할 것입니다. `===`연산자는 타입 변환을 하지 않으므로 두 값이 같은 타입이 아닌 경우 `===`는 단순히 `false`를 반환합니다. `==`를 사용하면 다음과 같은 무서운 일이 발생할 수 있습니다.
+
+```js
+1 == "1"; // true
+1 == [1]; // true
+1 == true; // true
+0 == ""; // true
+0 == "0"; // true
+0 == false; // true
+```
+
+`null`과 `undefined`를 비교할 때를 제외하고, `==`연산자를 절대 사용하지 않는 것입니다. `a == null`은 `a`가 `null` 또는 `undefined`이면 `true`를 반환합니다.
+
+```js
+var a = null;
+console.log(a == null); // true
+console.log(a == undefined); // true
+```
